@@ -353,10 +353,49 @@ header {
     overflow: hidden;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s ease;
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: url(../images/Group.png);
+      background-repeat: no-repeat;
+      background-position: 50% -80%;
+      opacity: 0;
+    }
+    &:hover {
+      background-color: $blue;
+      &::before {
+        opacity: 0.1;
+      }
+      .news-content {
+        padding: 120px 20px;
+        &::before {
+          opacity: 1;
+        }
+      }
+      .news-content {
+        * {
+          color: #fff;
+        }
+      }
+      .news-image {
+        img {
+          height: 0;
+        }
+      }
+    }
 
     .news-image {
       img {
-        max-width: 100%;
+        transition: all 0.3s ease;
+        width: 100%;
+        display: block;
+        height: 200px;
+        object-fit: cover;
       }
     }
     .color-header {
@@ -373,6 +412,17 @@ header {
     }
     .news-content {
       padding: 20px;
+      &::before {
+        content: "";
+        width: 64px;
+        height: 64px;
+        background-image: url(../images/news.png);
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
       h3 {
         margin-top: 40px;
         color: $red;
