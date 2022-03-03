@@ -5,3 +5,16 @@ require("../scss/style.scss");
 $(".scene").each((index, element) => {
   new Parallax(element);
 });
+
+$(window).on("scroll", () => {
+  const scroll = $(window).scrollTop();
+  if (scroll > 0) {
+    $("header").addClass("isScrolling");
+  } else {
+    $("header").removeClass("isScrolling");
+  }
+});
+
+$(window).on("load", () => {
+  $("#loader").slideUp();
+});
